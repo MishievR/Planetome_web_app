@@ -1,0 +1,11 @@
+body {
+  padding-top: 30vh;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+}
+.logo {
+  width: 133px;
+  margin-bottom: 40px;
+  margin-left: 2px;
+}
