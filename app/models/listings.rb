@@ -1,4 +1,6 @@
 class Listings < ActiveRecord::Base
-  belongs_to :category
+=begin  belongs_to :category
   belongs_to :subcategory
+=end
+
 end
