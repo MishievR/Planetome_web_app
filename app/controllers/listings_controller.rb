@@ -26,6 +26,13 @@ class ListingsController < ApplicationController
     @listing = Listing.find(params[:id])
   end
 
+  def destroy
+    @listing = Listing.find(params[:id])
+    @listing.destroy
+    flash[:notice] = "Article was successfully deleted"
+    redirect_to listings_path
+  end
+
   def update
     @listing = Listing.find(params[:id])
     if @listing.update(listing_params)
