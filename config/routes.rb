@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  root 'categories#index'
-  get 'categories/about', to: 'categories#about'
+  root 'pages#index'
+  get 'pages/about', to: 'pages#about'
 
   resources :listings
 end
