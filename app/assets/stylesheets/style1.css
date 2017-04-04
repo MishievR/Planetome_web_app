@@ -9,3 +9,14 @@ body {
   margin-bottom: 40px;
   margin-left: 2px;
 }
+.table {
+  position: absolute;
+  align-items: center;
+  align-self: center;
+  text-align: center;
+  align-content: center;
+  font-family: 'Open Sans', sans-serif;
+}
+tr {
+  align-items: center;
+}

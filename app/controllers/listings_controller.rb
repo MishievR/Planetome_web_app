@@ -1,6 +1,15 @@
 class ListingsController < ApplicationController
+
+  def index
+    @listings = Listing.all
+  end
+
   def new
     @listing = Listing.new
+  end
+
+  def edit
+    @listing = Listing.find(params[:id])
   end
 
   def create
@@ -15,6 +24,16 @@ class ListingsController < ApplicationController
 
   def show
     @listing = Listing.find(params[:id])
+  end
+
+  def update
+    @listing = Listing.find(params[:id])
+    if @listing.update(listing_params)
+      flash[:notice] = "Listing updated succcessfully"
+      redirect_to listing_path(@listing)
+    else
+      render 'edit'
+    end
   end
 
   private
