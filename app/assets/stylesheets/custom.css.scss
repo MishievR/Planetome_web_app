@@ -23,17 +23,17 @@ $navbar-default-bg: #003261;
 }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
     background-color: #D8D8D8;
-    color: #ffffff;
+    color: #eaeaea;
 }
 .nav.navbar-nav li a {
    color: #fff;
  }
- 
+
 .jumbotron {
   background-image: asset-url('jumbotron_bg.jpg');
   background-size: cover;
   height: 550px;
-  margin-top: -20px;
+  // margin-top: -20px;
 }
 
 .jumbotron h2 {
@@ -42,4 +42,20 @@ $navbar-default-bg: #003261;
   text-align: center;
   padding-top: 15vh;
 
+}
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #777;
+}
+
+footer a:hover {
+  color: #222;
+}
+
+footer p {
+  list-style: none;
+  text-align: center;
 }
