@@ -1,10 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <title>Planetome | Listings</title>
+
+  </head>
 <h1>List of all listings</h1>
 
 <p> Go to:  <%= link_to 'New Listing', new_listing_path %> | <%= link_to 'Main', root_path %> </p>
 <table class="table">
-  <tr>
+  <tr class="center">
     <th>Title</th>
     <th>Description</th>
+    <th>Edit</th>
+    <th>Show</th>
+    <th>Delete</th>
   </tr>
 
   <% @listings.each do |listing| %>
