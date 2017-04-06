@@ -15,7 +15,7 @@ class ListingsController < ApplicationController
   def create
     @listing = Listing.new(listing_params)
     if @listing.save
-      flash[:notice] = "Listing was successfully created"
+      flash[:success] = "Listing was successfully created"
       redirect_to listing_path(@listing)
     else
       render 'new'
@@ -29,14 +29,14 @@ class ListingsController < ApplicationController
   def destroy
     @listing = Listing.find(params[:id])
     @listing.destroy
-    flash[:notice] = "Article was successfully deleted"
+    flash[:danger] = "Article was successfully deleted"
     redirect_to listings_path
   end
 
   def update
     @listing = Listing.find(params[:id])
     if @listing.update(listing_params)
-      flash[:notice] = "Listing updated succcessfully"
+      flash[:success] = "Listing updated succcessfully"
       redirect_to listing_path(@listing)
     else
       render 'edit'

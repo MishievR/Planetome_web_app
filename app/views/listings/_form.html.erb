@@ -1,13 +1,4 @@
-<% if @listing.errors.any? %>
-<ul>
-  <% @listing.errors.full_messages.each do |msg| %>
-  <li><%= msg %></li>
-  <% end %>
-</ul>
-<% end %>
-
-
-
+<%= render 'shared/errors', obj: @listing %>
 
 <div class="row">
   <div class="col-xs-12">
