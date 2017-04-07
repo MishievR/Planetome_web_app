@@ -10,9 +10,11 @@
         <%= simple_format(@listing.description) %>
           <div class="listing-actions">
             <%= link_to 'Edit this listing', edit_listing_path(@listing), class: "btn btn-xs btn-primary" %>
-            <%= link_to 'Delete this listing', listings_path(@listing), method: :delete,
+            <%= link_to 'Delete this listing', listing_path(@listing), method: :delete,
                                                 data: { confirm: "Are you sure you want to delete this listing?"},
                                                 class: "btn btn-xs btn-danger" %>
             <%= link_to 'View all listings', listings_path, class: "btn btn-xs btn-success" %>
           </div>
   </div>
+
+</html>
