@@ -13,7 +13,9 @@ class ListingsController < ApplicationController
   end
 
   def create
+    debugger
     @listing = Listing.new(listing_params)
+    @listing.user = User.first
     if @listing.save
       flash[:success] = "Listing was successfully created"
       redirect_to listing_path(@listing)
