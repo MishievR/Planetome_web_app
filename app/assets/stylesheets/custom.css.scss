@@ -1,4 +1,4 @@
-$navbar-default-bg: #330867;
+$navbar-default-bg: #003567;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -16,6 +16,12 @@ $navbar-default-bg: #330867;
   // letter-spacing: 0px;
   // font-weight: 600;
   // font-family: 'Open Sans', sans-serif;
+}
+
+#particles-js {
+  width: 95vh;
+  height: 100vh;
+  background: #333;
 }
 
 #logo:hover {
@@ -45,8 +51,10 @@ $navbar-default-bg: #330867;
 }
 
 .jumbotron {
-  background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
-  // background-image: asset-url('jumbotron_bg-3.png');
+  position: relative;
+  // background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+
+  background-image: asset-url('jumbotron_bg-3.png');
   background-size: cover;
   height: 94vh;
 
