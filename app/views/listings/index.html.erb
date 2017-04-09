@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-
     <title>Planetome | Listings</title>
-
   </head>
 <h1 align="center">List of all listings</h1>
 
@@ -16,6 +14,11 @@
         </div>
         <div class="listing-body">
           <%= truncate(listing.description, length: 100) %>
+          <div class="listing-meta-details">
+          <small> Created by: <%= listing.user.username if listing.user %>
+                              <%= time_ago_in_words(listing.created_at) %> ago,
+                              last updated: <%= time_ago_in_words(listing.updated_at) %> </small>
+          </div>
         </div>
           <div class="listing-actions">
             <%= link_to 'Edit this listing', edit_listing_path(listing), class: "btn btn-xs btn-primary" %>
