@@ -2,7 +2,7 @@ class ListingsController < ApplicationController
   # before_action :set_listing, only: [:edit, :update, :show, :destroy]
 
   def index
-    @listings = Listing.all
+    @listings = Listing.paginate(page: params[:page], per_page: 5)
   end
 
   def new
@@ -14,7 +14,6 @@ class ListingsController < ApplicationController
   end
 
   def create
-
     @listing = Listing.new(listing_params)
     @listing.user = User.first
     if @listing.save

@@ -4,7 +4,11 @@
     <title>Planetome | Listings</title>
   </head>
 <h1 align="center">List of all listings</h1>
-
+<div align="center">
+  <%= will_paginate %>
+</div>
 <%= render 'listing', obj: @listings %>
-
+<div align="center">
+  <%= will_paginate %>
+</div>
 <!-- <p> Go to:  <%= link_to 'New Listing', new_listing_path %> | <%= link_to 'Main', root_path %> </p> -->
