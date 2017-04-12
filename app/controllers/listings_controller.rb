@@ -1,4 +1,5 @@
 class ListingsController < ApplicationController
+  # before_action :set_listing, only: [:edit, :update, :show, :destroy]
 
   def index
     @listings = Listing.all
@@ -13,7 +14,7 @@ class ListingsController < ApplicationController
   end
 
   def create
-    debugger
+
     @listing = Listing.new(listing_params)
     @listing.user = User.first
     if @listing.save
