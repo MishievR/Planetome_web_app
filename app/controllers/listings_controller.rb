@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-  # before_action :set_listing, only: [:edit, :update, :show, :destroy]
+  before_action :set_listing, only: [:edit, :update, :show, :destroy]
 
   def index
     @listings = Listing.paginate(page: params[:page], per_page: 5)
@@ -10,7 +10,6 @@ class ListingsController < ApplicationController
   end
 
   def edit
-    @listing = Listing.find(params[:id])
   end
 
   def create
@@ -25,18 +24,17 @@ class ListingsController < ApplicationController
   end
 
   def show
-    @listing = Listing.find(params[:id])
   end
 
   def destroy
-    @listing = Listing.find(params[:id])
+
     @listing.destroy
     flash[:danger] = "Article was successfully deleted"
     redirect_to listings_path
   end
 
   def update
-    @listing = Listing.find(params[:id])
+
     if @listing.update(listing_params)
       flash[:success] = "Listing updated succcessfully"
       redirect_to listing_path(@listing)
@@ -48,6 +46,10 @@ class ListingsController < ApplicationController
   private
     def listing_params
       params.require(:listing).permit(:title, :description)
+    end
+
+    def set_listing
+      @listing = Listing.find(params[:id])
     end
 
 end
