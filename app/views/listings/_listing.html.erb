@@ -8,7 +8,7 @@
         <div class="listing-body">
           <%= truncate(listing.description, length: 100) %>
           <div class="listing-meta-details">
-          <small> Created by: <%= listing.user.username if listing.user %>
+          <small> Created by: <%= listing.user.name if listing.user %>
                               <%= time_ago_in_words(listing.created_at) %> ago,
                               last updated: <%= time_ago_in_words(listing.updated_at) %> </small>
           </div>

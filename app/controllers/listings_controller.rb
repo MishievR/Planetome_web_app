@@ -15,7 +15,7 @@ class ListingsController < ApplicationController
 
   def create
     @listing = Listing.new(listing_params)
-    @listing.user = User.first
+    @listing.user = User.find(10)
     if @listing.save
       flash[:success] = "Listing was successfully created"
       redirect_to listing_path(@listing)

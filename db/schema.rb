@@ -10,17 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170409104229) do
+ActiveRecord::Schema.define(version: 20170413130948) do
 
   create_table "listings", force: :cascade do |t|
     t.string   "title"
     t.string   "city"
     t.string   "state"
     t.string   "zipcode"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.text     "description"
     t.integer  "user_id"
+    t.string   "listing_url"
+    t.string   "interest_main"
+    t.integer  "rating"
+    t.decimal  "price"
+    t.boolean  "smoke"
+    t.boolean  "pets"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.integer  "accomodate"
+    t.integer  "bedroom"
   end
 
   create_table "users", force: :cascade do |t|
@@ -29,6 +39,13 @@ ActiveRecord::Schema.define(version: 20170409104229) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "password_digest"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "age"
+    t.integer  "type"
+    t.string   "location_town"
+    t.string   "inerest_main"
+    t.text     "about"
   end
 
 end
