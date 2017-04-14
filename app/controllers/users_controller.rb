@@ -33,7 +33,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user_listings = @user.Listings.paginate(page: params[:page], per_page: 5)
+    @user_listings = @user.listings.paginate(page: params[:page], per_page: 5)
   end
 
   private
