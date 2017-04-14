@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  has_many :listings
+  has_many :listings, dependent: :destroy
 
   before_save { self.email = email.downcase }
 
@@ -8,8 +8,7 @@ class User < ActiveRecord::Base
 
   validates :last_name, presence: true, length: { minimum: 2 }
 
-  validates :username, presence: false, uniqueness: { case_sensitive: false },
-            length: { minimum: 3, maximum: 25}
+  validates :username, presence: false, uniqueness: { case_sensitive: false }
 
 
 
@@ -23,5 +22,5 @@ class User < ActiveRecord::Base
   def name
     "#{first_name} #{last_name}"
   end
-  
+
 end
