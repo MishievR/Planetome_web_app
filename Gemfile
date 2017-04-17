@@ -17,6 +17,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'font-awesome-sass'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate', '~> 0.0.10'
+gem 'rails-controller-testing'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

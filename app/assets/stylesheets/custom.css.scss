@@ -124,10 +124,20 @@ $navbar-default-bg: #1D3557;
 .jumbotron h3 {
   color: #fff;
   text-shadow: 1px 1px 5px #000000;
-  text-align: center;
-  padding-bottom: 7vh;
+  text-align: left;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
   align-self: left;
   font-family: 'Open Sans' sans-serif;
+}
+
+.desc-tag {
+  background-color: rgba(27, 47, 77, 0.5);
+  border-radius: 7px;
+  padding-left: 5vh;
+  padding-right: 5vh;
+  margin-left: 14.5vh;
+  margin-right: 14.5vh;
 }
 
 .interests {
