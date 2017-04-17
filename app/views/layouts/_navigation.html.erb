@@ -31,13 +31,15 @@
             </li>
             <% end %>
       </ul>
-      <form class="navbar-form navbar-left">
+      <form class="navbar-form navbar-left hidden-md hidden-sm">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">
         </div>
         <button type="submit" class="btn btn-success">Go!</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
+            <li id="nav-guest"><a href="#">Find a Place</a></li>
+            <li id="nav-host"><a href="#">Host a Place</a></li>
         <% if logged_in? %>
             <!--<li><%= link_to 'Sign in', signup_path, class: "btn btn-success navbar-btn btn-navigation-signup"%></li>-->
             <li><%= link_to 'Log out', logout_path, method: :delete %></li>

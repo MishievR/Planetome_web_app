@@ -1,7 +1,6 @@
 <% obj.each do |listing| %>
-  <div class="row">
-    <div class="col-xs-8 col-xs-offset-2">
-      <div class="well well-lg">
+
+      <div class="well">
         <div class="listing-title">
           <%= link_to listing.title, listing_path(listing) %>
         </div>
@@ -19,9 +18,8 @@
             <%= link_to 'Delete this listing', listing_path(listing), method: :delete,
                                                 data: { confirm: "Are you sure you want to delete this listing?"},
                                                 class: "btn btn-xs btn-danger" %>
-            </div>
-        <% end %>
           </div>
+        <% end %>
       </div>
-  </div>
+
 <% end %>

@@ -1,6 +1,6 @@
 <%= render 'shared/errors', obj: @listing %>
-
-<div class="row">
+<div class="container-fluid">
+  <div class="row">
   <div class="col-xs-12">
     <%= form_for(@listing, :html => {class: "form-horizontal", role: "form"}) do |f| %>
       <div class="form-group">
@@ -68,4 +68,5 @@
       [ <%= link_to 'Cancel request and return to listings', listings_path %> ]
     </div>
   </div>
+</div>
 </div>
