@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.35.1/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.35.1/mapbox-gl.css' rel='stylesheet' />
     <title>Planetome</title>
   </head>
   <body>
@@ -22,48 +24,194 @@
             <%= link_to 'Host a Place', signup_path, class: "btn btn-success btn-lg btn-xlarge " %>
           </div>
         </div>
+
+
+
+
+
+
       <!-- <%= link_to 'Try it now!', signup_path, class: "btn btn-success btn-lg btn-xlarge " %> -->
     </div>
   </div>
-
-  <div class="container">
-    <!-- <h2>Image Gallery</h2>
-    <p>The .thumbnail class can be used to display an image gallery.</p>
-    <p>The .caption class adds proper padding and a dark grey color to text inside thumbnails.</p>
-    <p>Click on the images to enlarge them.</p> -->
+  <div class="container-fluid">
     <div class="row">
-      <div class="col-md-4">
-        <div class="thumbnail">
-          <a href="/w3images/lights.jpg" target="_blank">
-            <img src="/w3images/lights.jpg" alt="Lights" style="width:100%">
-            <div class="caption">
-              <p>Live with like minded people.</p>
+      <!-- <li> -->
+        <div class="col-xs-3 col-md-6 col-lg-6">
+          <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-4 col-lg-4">
+                  <div class="thumbnail">
+                    <a href="/w3images/lights.jpg" target="_blank">
+                      <img src="/w3images/lights.jpg" alt="Lights" style="width:100%">
+                      <div class="caption">
+                        <p>Live with like minded people.</p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-md-4 col-lg-4">
+                  <div class="thumbnail">
+                    <a href="/w3images/nature.jpg" target="_blank">
+                      <img src="/w3images/nature.jpg" alt="Nature" style="width:100%">
+                      <div class="caption">
+                        <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-md-4 col-lg-4">
+                  <div class="thumbnail">
+                    <a href="/w3images/fjords.jpg" target="_blank">
+                      <img src="/w3images/fjords.jpg" alt="Fjords" style="width:100%">
+                      <div class="caption">
+                        <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
-          </a>
+          </div>
+
+
+                  <!-- <div class="col-xs-3 col-md-2 col-lg-2">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">Panel Heading</div>
+                      <div class="panel-body">Panel Content</div>
+                    </div>
+                  </div>
+
+                  <div class="col-xs-3 col-md-2 col-lg-2">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">Panel Heading</div>
+                      <div class="panel-body">Panel Content</div>
+                    </div>
+                  </div>
+                  <div class="col-xs-3 col-md-2 col-lg-2">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">Panel Heading</div>
+                      <div class="panel-body">Panel Content</div>
+                    </div>
+                  </div>
+        </div>
+      </li>
+      <li>
+        <div class="col-xs-3 col-md-6 col-lg-6">
+
+                  <div class="col-xs-3 col-md-2 col-lg-2">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">Panel Heading</div>
+                      <div class="panel-body">Panel Content</div>
+                    </div>
+                  </div>
+
+                  <div class="col-xs-3 col-md-2 col-lg-2">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">Panel Heading</div>
+                      <div class="panel-body">Panel Content</div>
+                    </div>
+                  </div>
+                  <div class="col-xs-3 col-md-2 col-lg-2">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">Panel Heading</div>
+                      <div class="panel-body">Panel Content</div>
+                    </div>
+                  </div>
+
+
+          </div>
+        </li> -->
+
+
+      <div class="col-xs-9 col-md-6 col-lg-6">
+        <div class="map-view">
+        <div id='map'></div>
+        <script>
+          mapboxgl.accessToken = 'pk.eyJ1Ijoicm9tYW4tbSIsImEiOiJjajFtcGtocDAwMDFoMzJwZmZzZG9hdG52In0.fxcpZ-JkfjAGgDbD2vDzUw';
+          var map = new mapboxgl.Map({
+              container: 'map',
+              style: 'mapbox://styles/mapbox/dark-v9',
+              center: [-103.59179687498357, 40.66995747013945],
+              zoom: 3
+          });
+
+          map.on('load', function() {
+              // Add a new source from our GeoJSON data and set the
+              // 'cluster' option to true. GL-JS will add the point_count property to your source data.
+              map.addSource("earthquakes", {
+                  type: "geojson",
+                  // Point to GeoJSON data. This example visualizes all M1.0+ earthquakes
+                  // from 12/22/15 to 1/21/16 as logged by USGS' Earthquake hazards program.
+                  data: "https://www.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson",
+                  cluster: true,
+                  clusterMaxZoom: 14, // Max zoom to cluster points on
+                  clusterRadius: 50 // Radius of each cluster when clustering points (defaults to 50)
+              });
+
+              map.addLayer({
+                  id: "clusters",
+                  type: "circle",
+                  source: "earthquakes",
+                  filter: ["has", "point_count"],
+                  paint: {
+                      "circle-color": {
+                          property: "point_count",
+                          type: "interval",
+                          stops: [
+                              [0, "#51bbd6"],
+                              [100, "#f1f075"],
+                              [750, "#f28cb1"],
+                          ]
+                      },
+                      "circle-radius": {
+                          property: "point_count",
+                          type: "interval",
+                          stops: [
+                              [0, 20],
+                              [100, 30],
+                              [750, 40]
+                          ]
+                      }
+                  }
+              });
+
+              map.addLayer({
+                  id: "cluster-count",
+                  type: "symbol",
+                  source: "earthquakes",
+                  filter: ["has", "point_count"],
+                  layout: {
+                      "text-field": "{point_count_abbreviated}",
+                      "text-font": ["DIN Offc Pro Medium", "Arial Unicode MS Bold"],
+                      "text-size": 12
+                  }
+              });
+
+              map.addLayer({
+                  id: "unclustered-point",
+                  type: "circle",
+                  source: "earthquakes",
+                  filter: ["!has", "point_count"],
+                  paint: {
+                      "circle-color": "#11b4da",
+                      "circle-radius": 4,
+                      "circle-stroke-width": 1,
+                      "circle-stroke-color": "#fff"
+                  }
+              });
+          });
+        </script>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="thumbnail">
-          <a href="/w3images/nature.jpg" target="_blank">
-            <img src="/w3images/nature.jpg" alt="Nature" style="width:100%">
-            <div class="caption">
-              <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
-            </div>
-          </a>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="thumbnail">
-          <a href="/w3images/fjords.jpg" target="_blank">
-            <img src="/w3images/fjords.jpg" alt="Fjords" style="width:100%">
-            <div class="caption">
-              <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
-            </div>
-          </a>
-        </div>
-      </div>
+
+
+
+
     </div>
   </div>
+</div>
+
+
 
     <!-- <div>
       <img src="https://c2.staticflickr.com/4/3928/32947863914_f3f71996ef_o.png" class="logo" />

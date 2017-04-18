@@ -9,7 +9,11 @@ $navbar-default-bg: #1D3557;
 
 
 
+#map {
 
+
+  position: inherit; top:0; bottom:0; height:900px; width:100%;
+}
 
 #logo {
   float: left;

@@ -15,7 +15,7 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require particles.min
-//= require_tree .
+//= require_tree
 
 
 window.setTimeout(function() {
@@ -23,3 +23,12 @@ window.setTimeout(function() {
         $(this).remove();
     });
 }, 4000);
+
+
+// var mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
+//
+// mapboxgl.accessToken = 'pk.eyJ1Ijoicm9tYW4tbSIsImEiOiJjajFtcGtocDAwMDFoMzJwZmZzZG9hdG52In0.fxcpZ-JkfjAGgDbD2vDzUw';
+// var map = new mapboxgl.Map({
+//   container: 'map-div',
+//   style: 'mapbox://styles/mapbox/streets-v9'
+// });

@@ -18,6 +18,8 @@ gem 'font-awesome-sass'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate', '~> 0.0.10'
 gem 'rails-controller-testing'
+gem 'mapbox-rails'
+
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
