@@ -1,13 +1,28 @@
-<div>
-  <footer class="footer">
-    <small>
-      Copyright &copy; 2017 | <a href="http://www.planetome.com">Planetome Inc.</a>
-      by Roman Mishiev.
-    </small>
-    <nav>
-        <p><%= link_to 'About', pages_about_path %> |
-        <%= link_to 'New Listing', new_listing_path %> |
-        <%= link_to 'Show Listings', listings_path %></p>
-    </nav>
-  </footer>
+<div class="footer-bottom">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-10 col-sm-10 col-md-5 col-lg-5">
+				<div class="copyright">
+          <small>
+            Copyright &copy; 2017 | <a href="http://www.planetome.com">Planetome Inc.</a>
+            by Roman Mishiev.
+          </small>
+				</div>
+			</div>
+      <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+        <div class="footer-logo">
+        <%= link_to image_tag('footer_logo.svg'), root_path %>
+      </div>
+      </div>
+			<div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+				<div class="design">
+          <nav>
+              <p><%= link_to 'About', pages_about_path %> |
+              <%= link_to 'New Listing', new_listing_path %> |
+              <%= link_to 'Show Listings', listings_path %></p>
+          </nav>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

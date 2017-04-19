@@ -10,8 +10,6 @@ $navbar-default-bg: #1D3557;
 
 
 #map {
-
-
   position: inherit; top:0; bottom:0; height:900px; width:100%;
 }
 
@@ -75,6 +73,7 @@ $navbar-default-bg: #1D3557;
 
 .center {
     text-align: center;
+    position: center;
 }
 
 .listing-padding {
@@ -87,14 +86,6 @@ $navbar-default-bg: #1D3557;
     color: #ffffff;
 }
 
-// .navbar-default .navbar-nav > li > a:focus {
-//   background-color: #ffffff;
-//   border-radius: 20px;
-//   height: 25px;
-//   margin-top: 10px;
-//   color: #000000;
-//
-// }
 .nav.navbar-nav li a {
     color: #fff;
 }
@@ -211,6 +202,11 @@ $navbar-default-bg: #1D3557;
   padding-left: 0;
 }
 
+.categoty {
+  position: relative;
+  left: 50%;
+}
+
 
 
 
@@ -233,4 +229,36 @@ footer small {
 footer p {
   float: right;
   padding-right: 10px;
+}
+
+.footer-logo {
+  position: relative;
+  left: 50%;
+  margin-top: 12.5px;
+}
+
+
+.footer-bottom {
+    background-color: #1D3557;
+    min-height: 30px;
+    width: 100%;
+    bottom: 0;
+    margin-bottom: 0px;
+    position: inherit;
+}
+.copyright {
+    color: #fff;
+    line-height: 30px;
+    min-height: 30px;
+    padding: 7px 0;
+}
+.design {
+    color: #fff;
+    line-height: 30px;
+    min-height: 30px;
+    padding: 7px 0;
+    text-align: right;
+}
+.design a {
+    color: #fff;
 }
