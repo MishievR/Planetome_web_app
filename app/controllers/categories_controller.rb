@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :require_admin, except: [:index, :show]
+  before_action :require_admin, except: [:index, :show, :edit]
 
 
   def index
@@ -20,14 +20,29 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def edit
+    @category = Category.find(params[:id])
+  end
+
   def show
+    @category = Category.find(params[:id])
+  end
+
+  def update
+    @category = Category.find(params[:id])
+    if @category.update(category_params)
+      flash[:success] = "Category was updated succcessfully"
+      redirect_to category_path(@category)
+    else
+      render 'edit'
+    end
   end
 
 
 
   private
   def category_params
-    params.require(:category).permit(:name)
+    params.require(:category).permit(:name, :description)
   end
 
   def require_admin

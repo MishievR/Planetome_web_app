@@ -7,7 +7,9 @@ $navbar-default-bg: #1D3557;
 @import "bootstrap";
 @-webkit-keyframes focus-in-expand-fwd{0%{letter-spacing:-.5em;-webkit-transform:translateZ(-800px);transform:translateZ(-800px);-webkit-filter:blur(12px);filter:blur(12px);opacity:0}100%{-webkit-transform:translateZ(0);transform:translateZ(0);-webkit-filter:blur(0);filter:blur(0);opacity:1}}@keyframes focus-in-expand-fwd{0%{letter-spacing:-.5em;-webkit-transform:translateZ(-800px);transform:translateZ(-800px);-webkit-filter:blur(12px);filter:blur(12px);opacity:0}100%{-webkit-transform:translateZ(0);transform:translateZ(0);-webkit-filter:blur(0);filter:blur(0);opacity:1}}
 
-
+body {
+    color: #443A3A;
+}
 
 #map {
   position: inherit; top:0; bottom:0; height:900px; width:100%;
@@ -59,6 +61,21 @@ $navbar-default-bg: #1D3557;
   position: right;
 }
 
+.itme-list{
+  padding-left: 30px;
+}
+
+.title-category {
+  padding-left: 40px;
+}
+
+.btn-submit-listing {
+  padding-bottom: 50px;
+}
+
+.form-container-listing {
+  padding-top: 0px;
+}
 
 .focus-in-expand-fwd {
 	-webkit-animation: focus-in-expand-fwd 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.4s both;
