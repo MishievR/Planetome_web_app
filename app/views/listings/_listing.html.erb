@@ -12,6 +12,9 @@
                               last updated: <%= time_ago_in_words(listing.updated_at) %> </small>
           </div>
         </div>
+        <% if listing.categories.any? %>
+        <p>Categories: <%= render listing.categories %></p>
+        <% end %>
         <% if logged_in? && (current_user == listing.user || current_user.admin?) %>
           <div class="listing-actions">
             <%= link_to 'Edit this listing', edit_listing_path(listing), class: "btn btn-xs btn-primary" %>

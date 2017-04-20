@@ -21,6 +21,9 @@
     <h4 class="center"><strong>Description:</strong></h4>
       <hr>
         <%= simple_format(@listing.description) %>
+        <% if @listing.categories.any? %>
+        <p>Categories: <%= render @listing.categories %></p>
+        <% end %>
           <div class="listing-actions">
             <% if logged_in? && (current_user == @listing.user || current_user.admin?) %>
               <%= link_to 'Edit this listing', edit_listing_path(@listing), class: "btn btn-xs btn-primary" %>

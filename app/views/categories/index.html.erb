@@ -35,12 +35,13 @@
                   <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                     <div class="well">
                       <li class="article-title">
-                        <h5>
-                        <%= link_to "#{category.name}", category_path(category) %>
-                        </h5>
-                        <h4><small>
-                        <%= truncate(category.description, length: 100) %>
-                        </small></h4>
+                          <h5>
+                          <%= link_to "#{category.name}", category_path(category) %>
+                          </h5>
+                          <span class="badge"><%= category.listings.count %></span>
+                          <h4><small>
+                            <%= truncate(category.description, length: 100) %>
+                          </small></h4>
                       </li>
                     </div>
                   </div>
