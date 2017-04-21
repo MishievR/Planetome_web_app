@@ -6,7 +6,7 @@
 <h1 align="center"><%= "List of all listings in " + @category.name %></h1>
 <h1 align="center"><small><%= @category.description %></small></h1>
 <div align="center">
-  <% if logged_in? and current_user.admin? %>
+  <% if user_signed_in? and current_user.admin? %>
     <div class="row">
       <span class="badge edit-category-badge"><%= link_to "Edit Category Info", edit_category_path(@category), class: "edit-category" %></span>
     </div>
