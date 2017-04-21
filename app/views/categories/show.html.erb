@@ -4,7 +4,7 @@
     <title>Planetome | Show Listings</title>
   </head>
 <h1 align="center"><%= "List of all listings in " + @category.name %></h1>
-<h2 align="center"><%= @category.description %></h2>
+<h1 align="center"><small><%= @category.description %></small></h1>
 <div align="center">
   <% if logged_in? and current_user.admin? %>
     <div class="row">
