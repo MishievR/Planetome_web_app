@@ -5,8 +5,12 @@
         <div class="listing-title">
           <%= link_to listing.title, listing_path(listing) %>
         </div>
+
         <div class="listing-body">
-          <%= truncate(listing.description, length: 100) %>
+          <%= truncate(listing.description, length: 100) %></br>
+          <% if listing.listing_url != nil %>
+            <%= link_to "Show living place", "https://www.airbnb.com/#{listing.listing_url}", :target => '_blank' %>
+          <% end %>
           <div class="listing-meta-details">
           <small> Created by:
 

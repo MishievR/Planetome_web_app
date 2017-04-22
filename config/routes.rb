@@ -1,19 +1,22 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  resources :categories
+  resources :listings
+
+  devise_for :users, :controllers => { registrations: 'registrations' }
   root 'pages#index'
   get 'pages/about', to: 'pages#about'
 
-  resources :listings
 
-get 'users/' => 'users#show'
+
+  get 'users/:id' => 'users#show', as: :user
   # get 'signup', to: 'users#new'
-  resources :users, except: [:new]
+  # resources :users, except: [:new]
   #
   # get 'login', to: 'sessions#new'
   # post 'login', to: 'sessions#create'
   # delete 'logout', to: 'sessions#destroy'
 
-  resources :categories
+
 
 end

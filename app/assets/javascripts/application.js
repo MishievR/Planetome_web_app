@@ -25,6 +25,7 @@ window.setTimeout(function() {
 }, 4000);
 
 
+
 // var mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
 //
 // mapboxgl.accessToken = 'pk.eyJ1Ijoicm9tYW4tbSIsImEiOiJjajFtcGtocDAwMDFoMzJwZmZzZG9hdG52In0.fxcpZ-JkfjAGgDbD2vDzUw';
