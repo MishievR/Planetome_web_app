@@ -20,6 +20,8 @@ gem 'bootstrap-will_paginate', '~> 0.0.10'
 gem 'rails-controller-testing'
 gem 'mapbox-rails'
 gem 'devise'
+gem 'twitter-bootstrap-rails'
+gem 'devise-bootstrap-views'
 
 
 # Use Uglifier as compressor for JavaScript assets

@@ -6,9 +6,9 @@ Rails.application.routes.draw do
 
   resources :listings
 
-get 'users/:id' => 'users#show'
+get 'users/' => 'users#show'
   # get 'signup', to: 'users#new'
-  # resources :users, except: [:new]
+  resources :users, except: [:new]
   #
   # get 'login', to: 'sessions#new'
   # post 'login', to: 'sessions#create'
