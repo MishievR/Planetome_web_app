@@ -3,29 +3,32 @@
   <head>
     <title>Planetome | Show Listings</title>
   </head>
+  <body id="show-listing-body">
   <h2 align="center"><%= @listing.title %> </h2>
   <!-- <div class="well col-xs-8 col-xs-offset-2"> -->
   <div class="container-fluid">
 <% if @listing.user %>
   <ul class="listing">
-    <div class="row ">
-      <div class="col-md-12 ">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="panel panel-default">
-              <div class="panel-body">
-            <div class="col-sm-2 col-md-2 col-lg-2">
-              <li><%= link_to gravatar_for(@listing.user), user_path(@listing.user) %></li>
-            </div>
-            <div class="col-sm-10 col-md-10 col-lg-10">
-              <li class="listing-title">
-                <%= link_to @listing.user.name, user_path(@listing.user) %>
-                <span class="badge badge-text">Startups</span>
-              </li>
-              <li><small>Planetome member for: <%= time_ago_in_words(@listing.user.created_at) %></small></li>
-                <li><small>Created <%= pluralize(@listing.user.listings.count, "listing") if @listing.user.listings %></small></li>
+    <div class="container-fluid">
+      <div class="row ">
+        <div class="col-md-10 col-md-offset-1 ">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="panel panel-default">
+                <div class="panel-body">
+              <div class="col-sm-2 col-md-1 col-lg-1">
+                <li><%= link_to gravatar_for(@listing.user), user_path(@listing.user) %></li>
               </div>
-            </div>
+              <div class="col-sm-10 col-md-11 col-lg-11">
+                <li class="listing-title">
+                  <%= link_to @listing.user.name, user_path(@listing.user) %>
+                  <span class="badge badge-text">Startups</span>
+                </li>
+                <li><small>Planetome member for: <%= time_ago_in_words(@listing.user.created_at) %></small></li>
+                  <li><small>Created <%= pluralize(@listing.user.listings.count, "listing") if @listing.user.listings %></small></li>
+                </div>
+              </div>
+              </div>
             </div>
           </div>
         </div>
@@ -36,31 +39,33 @@
   <h4 class="center"><strong>Trip description:</strong></h4>
   <div class="container-fluid">
     <div class="row">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <nav class="col-sm-6 col-md-4 col-lg-4 panel-data-position">
-            <ul class="list-group">
-              <li class="list-group-item">Number of guests: <span class="badge"><%= @listing.companions %></span></li>
-              <li class="list-group-item">Country of destination:</li>
-              <li class="list-group-item">City of destination:</li>
-              <li class="list-group-item">Dates of the trip:</li>
-              <li class="list-group-item">Primary interest of the trip:</li>
-              <li class="list-group-item">  <% if @listing.listing_url != nil %>
-                  <span class="label label-primary"><%= link_to "Show living place", "https://www.airbnb.com/#{@listing.listing_url}", class: "badge-text",  :target => '_blank' %></span>
-                <% end %></span></li>
-              <li class="list-group-item"><% if @listing.categories.any? %>
-              <p>Categories: <%= render @listing.categories %></p>
-              <% end %></li>
-              <% if user_signed_in? && (current_user == @listing.user || current_user.admin?) %>
-            </ul>
-          </nav>
-          <div class="col-sm-6 col-md-7 col-lg-7">
-            <%= simple_format(@listing.description) %>
-          </div>
-          <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"
-              <div class="btn-group" role="group" aria-label="...">
-                <%= link_to 'Find a Place', new_user_registration_path, class: "btn btn-default btn-lg" %>
+      <div class="col-md-10 col-md-offset-1 ">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <nav class="col-sm-6 col-md-4 col-lg-4 panel-data-position">
+              <ul class="list-group">
+                <li class="list-group-item">Number of guests: <span class="badge"><%= @listing.companions %></span></li>
+                <li class="list-group-item">Country of destination:</li>
+                <li class="list-group-item">City of destination:</li>
+                <li class="list-group-item">Dates of the trip:</li>
+                <li class="list-group-item">Primary interest of the trip:</li>
+                <li class="list-group-item">  <% if @listing.listing_url != nil %>
+                    <span class="label label-primary"><%= link_to "Show living place", "https://www.airbnb.com/#{@listing.listing_url}", class: "badge-text",  :target => '_blank' %></span>
+                  <% end %></span></li>
+                <li class="list-group-item"><% if @listing.categories.any? %>
+                <p>Categories: <%= render @listing.categories %></p>
+                <% end %></li>
+                <% if user_signed_in? && (current_user == @listing.user || current_user.admin?) %>
+              </ul>
+            </nav>
+            <div class="col-sm-6 col-md-7 col-lg-7">
+              <%= simple_format(@listing.description) %>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"
+                <div class="btn-group" role="group" aria-label="...">
+                  <%= link_to 'Find a Place', new_user_registration_path, class: "btn btn-default btn-lg" %>
+                </div>
               </div>
             </div>
           </div>
@@ -71,22 +76,25 @@
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"
           <div align="center">
             <div class="btn-group center" role="group" aria-label="...">
-              <%= link_to 'Find a Place', new_user_registration_path, class: "btn btn-success btn-lg btn-request" %>
+              <%= link_to 'Request', new_user_registration_path, class: "btn btn-success btn-lg btn-request" %>
             </div>
           </div>
         </div>
       </div>
-
-      <div class="row">
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <div class="listing-actions">
-                  <%= link_to 'Edit this listing', edit_listing_path(@listing), class: "btn btn-xs btn-primary" %>
-                  <%= link_to 'Delete this listing', listing_path(@listing), method: :delete,
-                                                      data: { confirm: "Are you sure you want to delete this listing?"},
-                                                      class: "btn btn-xs btn-danger" %>
-                <% end %>
-                <%= link_to 'View all listings', listings_path, class: "btn btn-xs btn-success" %>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <div class="listing-actions">
+                      <%= link_to 'Edit this listing', edit_listing_path(@listing), class: "btn btn-xs btn-primary" %>
+                      <%= link_to 'Delete this listing', listing_path(@listing), method: :delete,
+                                                          data: { confirm: "Are you sure you want to delete this listing?"},
+                                                          class: "btn btn-xs btn-danger" %>
+                    <% end %>
+                    <%= link_to 'View all listings', listings_path, class: "btn btn-xs btn-success" %>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -94,4 +102,5 @@
       </div>
     </div>
   </div>
+</body>
 </html>

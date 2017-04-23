@@ -11,6 +11,10 @@ body {
     color: #443A3A;
 }
 
+#p-margin-b-0 {
+  margin-bottom: 0px;
+}
+
 #map {
   position: inherit; top:0; bottom:0; height:900px; width:100%;
 }
@@ -48,6 +52,10 @@ body {
 #nav-guest a:hover {
   text-decoration: overline;
   color: #ffffff;
+}
+
+#show-listing-body {
+  background-image: linear-gradient(to top, #F1F7FF 0%, #F9FCFF 100%);
 }
 
 .label-listing-card {
@@ -142,10 +150,24 @@ body {
 .jumbotron {
   position: relative;
   // background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
-  background-image: asset-url('jumbotron_bg-4.jpg');
+  // background-image: asset-url('background-header-v1.mp4');
   background-size: cover;
   height: 96vh;
+  z-index:0;
 }
+
+#video-background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -1;
+  width:100%;
+}
+
+
 
 .jumbotron h1 {
   color: #fff;

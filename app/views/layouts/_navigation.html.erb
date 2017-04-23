@@ -82,8 +82,10 @@
             </li>
             <% else %>
 
-          <li><%= link_to 'Log in', new_user_session_path%></li>
-          <li><%= link_to 'Sign up', new_user_registration_path %></li>
+          <li><%= link_to  new_user_session_path do %>
+            <p id="p-margin-b-0" ><span class="glyphicon glyphicon-log-in"></span> Log In</p><% end %></li>
+          <li><%= link_to  new_user_registration_path do %>
+            <p id="p-margin-b-0" ><span class="glyphicon glyphicon-pencil"></span> Sign Up</p><% end %></li>
           <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->

@@ -52,7 +52,7 @@
               <%= f.label :description %>
             </div>
             <div class="col-sm-8 col-md-9 col-lg-9">
-              <%= f.text_area :description, rows: 3, class: "form-control", placeholder: "Desctiption of article", autofocus: true %>
+              <%= f.text_area :description, rows: 7, class: "form-control", placeholder: "Desctiption of article", autofocus: true %>
             </div>
           </div>
         </div>
@@ -61,7 +61,7 @@
     <div class="col-xs-12 col-md-3">
       <div class="container-fluid">
         <div class="form-group">
-          <div class="list-group">
+          <div class="list-group" autofocus: true>
             <div class="title-category"><h4>Please, select categories of the listing:</br>
               <small>One or many</small></h4></div>
                 <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
