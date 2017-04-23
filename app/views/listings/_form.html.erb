@@ -18,19 +18,28 @@
               <%= f.text_field :title, class: "form-control", placeholder: "Type, duration", autofocus: true %>
             </div>
           </div>
+
+          <div class="form-group">
+            <div class="control-label col-sm-2 col-md-3 col-lg-3">
+              <%= f.label :max_number_of_guests %>
+            </div>
+            <div class="col-sm-8 col-md-9 col-lg-9">
+              <%= f.number_field :companions, class: "form-control", placeholder: "Type, duration", autofocus: true %>
+            </div>
+          </div>
+
+
           <div class="form-group">
             <div class="control-label col-sm-2 col-md-3 col-lg-3">
               <%= f.label :Url_to_the_listing  %>
             </div>
-
-
-
-<div class="col-sm-8 col-md-9 col-lg-9">
-            <div class="input-group">
-              <span class="input-group-addon" id="basic-addon3">https://www.airbnb.com/</span>
-                <%= f.text_area :listing_url, rows: 1, class: "form-control", placeholder: "rooms/123456", autofocus: true %>
+            <div class="col-sm-8 col-md-9 col-lg-9">
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon3">https://www.airbnb.com/</span>
+                  <%= f.text_area :listing_url, rows: 1, class: "form-control", placeholder: "rooms/123456", autofocus: true %>
+              </div>
             </div>
-  </div>
+
 
 
 
