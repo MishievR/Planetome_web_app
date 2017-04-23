@@ -53,7 +53,7 @@
         <%= f.label :something_about_you  %>
       </div>
       <div class="col-sm-12 col-md-10 col-md-offset-1">
-        <%= f.text_area :about, rows: 1, class: "form-control", placeholder: "About me...", autofocus: true %>
+        <%= f.text_area :about, rows: 2, class: "form-control", placeholder: "About me...", autofocus: true %>
       </div>
     </div>
 
@@ -89,6 +89,19 @@
       </div>
       <div class="col-sm-12 col-md-10 col-md-offset-1">
         <%= f.password_field :current_password, class: 'form-control' %>
+
+
+        <div class="form-group">
+          <div class="list-group" autofocus: true>
+            <div class="title-category"><h4>Please, select categories of the listing:</br>
+              <small>One or many</small></h4></div>
+                <%= f.collection_check_boxes :interest_ids, Interest.all, :id, :name do |cb| %>
+                  <ul>
+                    <%= cb.label(class: "list-group-item checkbox-inline input_checkbox itme-list") {cb.check_box(class: "list-group-item checkbox ") + cb.text}  %>
+                  </ul>
+                <% end %>
+              </div>
+            </div>
 
       <%= f.submit t('.update', default: 'Update'), class: 'btn btn-primary' %>
     </div>

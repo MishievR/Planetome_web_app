@@ -4,7 +4,7 @@
     <nav class="col-md-3">
       <ul class="list-group">
         <li class="list-group-item">
-          <h1 align="center">Welcome to 's page
+          <h1 align="center">Welcome to <%= @user.first_name %>'s page
           </h1>
         </li>
         <li class="list-group-item">
@@ -15,11 +15,14 @@
           Cras justo odio
         </li>
         <li class="list-group-item">
-          <span class="badge">14</span>
-          Cras justo odio
+          Interests:
+          <% if @user.interests.any? %>
+          <%= render @user.interests %>
+          <% end %>
         </li>
       </ul>
     </nav>
+
 
     <div class="col-md-9">
       <h2 align=""><%= @user.name %>'s articles</h2>

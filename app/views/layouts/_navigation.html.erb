@@ -73,11 +73,10 @@
 
                 <% end %>
                 <li role="separator" class="divider"></li>
-                <li><%= link_to 'Edit your profile', edit_user_registration_path(current_user)%></li>
-                <li><%= link_to 'View your profile', user_path(current_user)%></li>
-                <li><a href="#">Something else here</a></li>
+                <li><%= link_to 'View your public profile', user_path(current_user)%></li>
+                <li><a href="#">View your profile data</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="#">Separated link</a></li>
+                <li><%= link_to 'Edit your profile', edit_user_registration_path(current_user)%></li>
               </ul>
             </li>
             <% else %>

@@ -10,13 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170423204405) do
+ActiveRecord::Schema.define(version: 20170423221040) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.text     "description"
+  end
+
+  create_table "interests", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "listing_categories", force: :cascade do |t|
@@ -45,6 +52,11 @@ ActiveRecord::Schema.define(version: 20170423204405) do
     t.integer  "bedroom"
     t.integer  "companions",    default: 1
     t.string   "price_time"
+  end
+
+  create_table "user_interests", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "interest_id"
   end
 
   create_table "users", force: :cascade do |t|
