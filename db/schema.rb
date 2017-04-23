@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170422174646) do
+ActiveRecord::Schema.define(version: 20170423204405) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20170422174646) do
     t.integer  "accomodate"
     t.integer  "bedroom"
     t.integer  "companions",    default: 1
+    t.string   "price_time"
   end
 
   create_table "users", force: :cascade do |t|

@@ -58,6 +58,16 @@ body {
   background-image: linear-gradient(to top, #F1F7FF 0%, #F9FCFF 100%);
 }
 
+.panel {
+  border: 2px;
+  border-radius: 0px;
+}
+
+.well {
+
+  border-radius: 2px;
+}
+
 .label-listing-card {
   margin-bottom: 14px;
   margin-right: 20px;

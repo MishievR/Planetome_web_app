@@ -44,9 +44,12 @@
           <div class="panel-body">
             <nav class="col-sm-6 col-md-4 col-lg-4 panel-data-position">
               <ul class="list-group">
+                <li class="list-group-item">Price: <span class="badge badge-text">$<%= @listing.price %> <%= @listing.price_time%></span></li>
                 <li class="list-group-item">Number of guests: <span class="badge"><%= @listing.companions %></span></li>
+                <% if @listing.city %>
+                <li class="list-group-item">City of destination: <span class="badge"><%= @listing.city %></span></li>
+                <% end %>
                 <li class="list-group-item">Country of destination:</li>
-                <li class="list-group-item">City of destination:</li>
                 <li class="list-group-item">Dates of the trip:</li>
                 <li class="list-group-item">Primary interest of the trip:</li>
                 <li class="list-group-item">  <% if @listing.listing_url != nil %>
