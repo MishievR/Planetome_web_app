@@ -1,79 +1,63 @@
 <% obj.each do |listing| %>
-
-
       <div class="well">
         <div class="listing-title">
           <%= link_to listing.title, listing_path(listing), class: "listing-title-text" %>
           <span class="badge badge-text">$<%= listing.price %> <%= listing.price_time%></span>
-        </div>
-        <hr>
-
-
-
-
-
-
-
-
-<div class="contaoner-fluid">
-<div class="row">
-  <div class="col-md-3"
-        <div class="listing-body">
-          <ul class="list-group">
-            <li class="list-group-item"><span class="glyphicon glyphicon-user"></span><span class="badge"><%= listing.companions %></span></li>
-            <% if listing.city %>
-            <li class="list-group-item"><span class="glyphicon glyphicon-globe"></span><span class="badge"><%= listing.city %></span></li>
-            <% else %>
-            <li class="list-group-item"><span class="glyphicon glyphicon-map-marker"></span><span class="badge">None</span></li>
-            <% end %>
-            <li class="list-group-item"><span class="glyphicon glyphicon-calendar"></span><span class="badge"><%= listing.companions %></span></li>
-            <li class="list-group-item">Interest </li>
-            <li class="list-group-item">
-              <% if listing.listing_url != nil %>
-                <li class="list-group-item"><span class="glyphicon glyphicon-home"></span><span class="badge"><span class="glyphicon glyphicon-ok-circle"></span></span></li>
-              <% else  %>
-                <li class="list-group-item"><span class="glyphicon glyphicon-home"></span><span class="badge badge-red"><span class="glyphicon glyphicon-remove-circle"></span></span></li>
-              <% end %> </li>
-
-          </ul>
+          <p><%= render listing.interests %></p>
         </div>
 
 
-
-
-<div class="col-md-9">
-          <%= truncate(listing.description, length: 100) %></br>
-          <% if listing.listing_url != nil %>
-            <%= link_to "Show living place", "https://www.airbnb.com/#{listing.listing_url}", :target => '_blank' %>
-          <% end %></br>
-          <%= listing.companions %>
-
-
-        </div>
+        <div class="contaoner-fluid">
+          <div class="listing-body">
+            <div class="row">
+              <div class="col-md-3">
+                <ul class="list-group">
+                  <li class="list-group-item"><span class="glyphicon glyphicon-user"></span><span class="badge"><%= listing.companions %></span></li>
+                  <% if listing.city %>
+                  <li class="list-group-item"><span class="glyphicon glyphicon-globe"></span><span class="badge"><%= listing.city %></span></li>
+                  <% else %>
+                  <li class="list-group-item"><span class="glyphicon glyphicon-map-marker"></span><span class="badge">None</span></li>
+                  <% end %>
+                  <li class="list-group-item"><span class="glyphicon glyphicon-calendar"></span><span class="badge"><%= listing.companions %></span></li>
+                  <li class="list-group-item">Interest </li>
+                  <li class="list-group-item">
+                    <% if listing.listing_url != nil %>
+                      <li class="list-group-item"><span class="glyphicon glyphicon-home"></span><span class="badge"><span class="glyphicon glyphicon-ok-circle"></span></span></li>
+                    <% else  %>
+                      <li class="list-group-item"><span class="glyphicon glyphicon-home"></span><span class="badge badge-red"><span class="glyphicon glyphicon-remove-circle"></span></span></li>
+                    <% end %> </li>
+                </ul>
+              </div>
+              <div class="col-md-9">
+                <%= truncate(listing.description, length: 100) %></br>
+              </div>
+          </div>
       </div>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+                    <div class="listing-meta-details">
+                    <small> Created by:
+<%= gravatar_for(listing.user, :size => 40) %>
+                       <%= listing.user.name if listing.user %>  |
+                                        <%= time_ago_in_words(listing.created_at) %> ago  |
+                                        last updated: <%= time_ago_in_words(listing.updated_at) %> </small>
 
-
-
-
-          <div class="listing-meta-details">
-          <small> Created by:
-
-             <%= listing.user.name if listing.user %>  |
-                              <%= time_ago_in_words(listing.created_at) %> ago  |
-                              last updated: <%= time_ago_in_words(listing.updated_at) %> </small>
+                    </div>
+                    <% if listing.categories.any? %>
+                    <p>Categories: <%= render listing.categories %></p>
+                    <% end %>
+                    <% if user_signed_in? && (current_user == listing.user || current_user.admin?) %>
+                      <div class="listing-actions">
+                        <%= link_to 'Edit this listing', edit_listing_path(listing), class: "btn btn-xs btn-primary" %>
+                        <%= link_to 'Delete this listing', listing_path(listing), method: :delete,
+                                                            data: { confirm: "Are you sure you want to delete this listing?"},
+                                                            class: "btn btn-xs btn-danger" %>
+                      </div>
+                    <% end %>
+            </div>
           </div>
         </div>
-        <% if listing.categories.any? %>
-        <p>Categories: <%= render listing.categories %></p>
-        <% end %>
-        <% if user_signed_in? && (current_user == listing.user || current_user.admin?) %>
-          <div class="listing-actions">
-            <%= link_to 'Edit this listing', edit_listing_path(listing), class: "btn btn-xs btn-primary" %>
-            <%= link_to 'Delete this listing', listing_path(listing), method: :delete,
-                                                data: { confirm: "Are you sure you want to delete this listing?"},
-                                                class: "btn btn-xs btn-danger" %>
-          </div>
-        <% end %>
       </div>
-
+    </div>
 <% end %>
