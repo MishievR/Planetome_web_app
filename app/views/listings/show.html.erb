@@ -21,8 +21,10 @@
               </div>
               <div class="col-sm-10 col-md-11 col-lg-11">
                 <li class="listing-title">
-                  <%= link_to @listing.user.name, user_path(@listing.user) %>
-                  <span class="badge badge-text">Startups</span>
+                  <%= link_to @listing.user.name, user_path(@listing.user), class: "listing-title-text" %>
+                  <% if @listing.user.interests.any? %>
+                <%= render @listing.user.interests %>
+                <% end %>
                 </li>
                 <li><small>Planetome member for: <%= time_ago_in_words(@listing.user.created_at) %></small></li>
                   <li><small>Created <%= pluralize(@listing.user.listings.count, "listing") if @listing.user.listings %></small></li>
@@ -53,7 +55,7 @@
                 <li class="list-group-item">Dates of the trip:</li>
                 <li class="list-group-item">Primary interest of the trip:</li>
                 <li class="list-group-item">  <% if @listing.listing_url != nil %>
-                    <span class="label label-primary"><%= link_to "Show living place", "https://www.airbnb.com/#{@listing.listing_url}", class: "badge-text",  :target => '_blank' %></span>
+                    <span class="label label-primary label-show-link"><%= link_to "Show living place", "https://www.airbnb.com/#{@listing.listing_url}", class: "badge-text",  :target => '_blank' %></span>
                   <% end %></span></li>
                 <li class="list-group-item"><% if @listing.categories.any? %>
                 <p>Categories: <%= render @listing.categories %></p>
@@ -73,7 +75,19 @@
           </div>
         </div>
       </div>
-
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="listing-actions">
+                <small> Listing created <%= time_ago_in_words(@listing.created_at) %> ago  |
+                        last updated: <%= time_ago_in_words(@listing.updated_at) %>
+                </small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"
           <div align="center">

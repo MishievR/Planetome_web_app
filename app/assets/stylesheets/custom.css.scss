@@ -116,9 +116,8 @@ body {
 }
 
 .badge {
-  background-color: #0a9fdf;
+  background-image: linear-gradient(to top, #4DC5F9 0%, #0a9fdf 100%);
 }
-
 .badge-text {
   color: #fff;
   font-weight: 400;
@@ -126,6 +125,27 @@ body {
 .badge-text:hover {
   color: #545454;
   font-weight: 400;
+}
+
+
+.badge-interest {
+  background-image: linear-gradient(to top, #05B1B7 0%, #50CED0 100%);
+}
+.badge-text-interest {
+  color: #fff;
+  font-weight: 400;
+}
+.badge-text-interest:hover {
+  color: #0a9fdf;
+  font-weight: 500;
+}
+
+.badge-red {
+  background-image: linear-gradient(to top, #F32F2B 0%, #F05050 100%);
+}
+
+.label-show-link {
+  background-image: linear-gradient(to top, #11B512 0%, #37D232 100%);
 }
 
 .navbar-default .navbar-nav > li > a:hover {
@@ -256,9 +276,12 @@ body {
   margin-bottom: 20px;
 }
 
+.listing-title-text {
+  color: #0a9fdf;
+}
 .listing-title {
   font-weight: bold;
-  font-size: 1.5em;
+  font-size: 1.6em;
 }
 
 .listing-body {
