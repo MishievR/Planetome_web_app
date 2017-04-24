@@ -53,7 +53,9 @@
                 <% end %>
                 <li class="list-group-item">Country of destination:</li>
                 <li class="list-group-item">Dates of the trip:</li>
-                <li class="list-group-item">Primary interest of the trip:</li>
+                <li class="list-group-item"><% if @listing.interests.any? %>
+                <p>Categories: <%= render @listing.interests %></p>
+                <% end %></li>
                 <li class="list-group-item">  <% if @listing.listing_url != nil %>
                     <span class="label label-primary label-show-link"><%= link_to "Show living place", "https://www.airbnb.com/#{@listing.listing_url}", class: "badge-text",  :target => '_blank' %></span>
                   <% end %></span></li>

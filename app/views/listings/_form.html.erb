@@ -95,6 +95,21 @@
           </div>
         </div>
       </div>
+      <div class="col-xs-12 col-md-3">
+        <div class="container-fluid">
+          <div class="form-group">
+            <div class="list-group" autofocus: true>
+              <div class="title-category"><h4>What is the main interest of the trip?</br>
+                <small>From your inerests</small></h4></div>
+                  <%= f.collection_check_boxes :interest_ids, current_user.interests.all, :id, :name do |cb| %>
+                    <ul>
+                  <%= cb.label(class: "list-group-item checkbox-inline input_checkbox itme-list") {cb.check_box(class: "list-group-item checkbox ") + cb.text}  %>
+                </ul>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
     </div>
