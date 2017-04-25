@@ -22,6 +22,9 @@ gem 'mapbox-rails'
 gem 'devise'
 gem 'twitter-bootstrap-rails'
 gem 'devise-bootstrap-views'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
 
 
 # Use Uglifier as compressor for JavaScript assets
