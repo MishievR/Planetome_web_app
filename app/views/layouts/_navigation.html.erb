@@ -46,15 +46,18 @@
               </ul>
             </li>
       </ul>
-      <form class="navbar-form navbar-left hidden-md hidden-sm">
+      <!-- <form class="navbar-form navbar-left hidden-md hidden-sm">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">
         </div>
         <button type="submit" class="btn btn-success">Go!</button>
-      </form>
+      </form> -->
       <ul class="nav navbar-nav navbar-right">
-            <li id="nav-guest"><a href="#">Find a Place</a></li>
-            <li id="nav-host"><a href="#">Host a Place</a></li>
+            <li id="nav-guest" ><a href="#">Find a Trip</a></li>
+            <% if user_signed_in? %>
+            <li id="nav-host"><span class="label label-info label-host"><%= link_to 'Host a Trip', new_listing_path %></span></li>
+            <% end %>
+
 
             <% if user_signed_in? %>
             <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>

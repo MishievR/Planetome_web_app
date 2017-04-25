@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170424175741) do
+ActiveRecord::Schema.define(version: 20170425153410) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20170424175741) do
     t.string   "listing_url"
     t.string   "interest_main"
     t.integer  "rating"
-    t.decimal  "price"
+    t.integer  "price"
     t.boolean  "smoke"
     t.boolean  "pets"
     t.datetime "start_date"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20170424175741) do
     t.integer  "bedroom"
     t.integer  "companions",    default: 1
     t.string   "price_time"
+    t.text     "tag_line"
   end
 
   create_table "user_interests", force: :cascade do |t|

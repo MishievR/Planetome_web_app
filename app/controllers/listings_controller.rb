@@ -32,7 +32,7 @@ class ListingsController < ApplicationController
   def destroy
 
     @listing.destroy
-    flash[:danger] = "Article was successfully deleted"
+    flash[:danger] = "Listing was successfully deleted"
     redirect_to listings_path
   end
 
@@ -48,7 +48,8 @@ class ListingsController < ApplicationController
 
   private
     def listing_params
-      params.require(:listing).permit(:title, :description, :listing_url, :companions, :price, :price_time, category_ids: [], interest_ids: [])
+      params.require(:listing).permit(:title, :tag_line, :description, :listing_url, :companions, :price, :price_time,
+                                     :start_date, :end_date, category_ids: [], interest_ids: [])
     end
 
     def set_listing
@@ -57,7 +58,7 @@ class ListingsController < ApplicationController
 
     def require_same_user
       if current_user != @listing.user and !current_user.admin?
-        flash[:danger] = "You can only edit or delete your own article"
+        flash[:danger] = "You can only edit or delete your own listing"
         redirect_to root_path
       end
     end

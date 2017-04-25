@@ -11,4 +11,6 @@ class Listing < ActiveRecord::Base
   validates :interest_ids, presence: true
   validates :price, presence: true
   validates :price_time, presence: true
+  validates :start_date, presence: true
+  validates :tag_line, presence: true
 end

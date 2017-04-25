@@ -24,6 +24,7 @@ window.setTimeout(function() {
     });
 }, 4000);
 
+$('.datepicker').datepicker()
 
 
 // var mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');

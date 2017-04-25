@@ -35,27 +35,31 @@ body {
   text-decoration: none;
 }
 
-#nav-host a {
-  text-decoration: underline;
-  color: #4BEE4B;
+#nav-host  {
+  // text-decoration: underline;
+  color: #0a9fdf;
+  margin-top: 15px;
 }
-#nav-host a:hover {
-  text-decoration: underline;
-  color: #ffffff;
-}
+
+
 
 
 #nav-guest a {
-  text-decoration: overline;
+  // text-decoration: overline;
   color: #EECF2C;
 }
 #nav-guest a:hover {
-  text-decoration: overline;
+  // text-decoration: overline;
   color: #ffffff;
 }
 
 #show-listing-body {
   background-image: linear-gradient(to top, #F1F7FF 0%, #F9FCFF 100%);
+}
+
+.label-host {
+
+  background-color: #0a9fdf;
 }
 
 .panel {
@@ -141,7 +145,11 @@ body {
 }
 
 .badge-red {
-  background-image: linear-gradient(to top, #F32F2B 0%, #F05050 100%);
+  background-image: linear-gradient(to top, #FC5928 0%, #FC5928 100%);
+}
+
+.badge-green {
+  background-image: linear-gradient(to top, #45B254 0%, #45B254 100%);
 }
 
 .label-show-link {

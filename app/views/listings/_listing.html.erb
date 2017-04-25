@@ -2,7 +2,8 @@
       <div class="well">
         <div class="listing-title">
           <%= link_to listing.title, listing_path(listing), class: "listing-title-text" %>
-          <span class="badge badge-text">$<%= listing.price %> <%= listing.price_time%></span>
+          <span class="badge badge-text badge-green"><strong>$<%= listing.price %></strong> <%= listing.price_time%></span>
+          <h4><%= listing.tag_line %></h4>
           <p><%= render listing.interests %></p>
         </div>
 
@@ -11,22 +12,28 @@
           <div class="listing-body">
             <div class="row">
               <div class="col-md-3">
+                <div class="panel panel-info">
                 <ul class="list-group">
-                  <li class="list-group-item"><span class="glyphicon glyphicon-user"></span><span class="badge"><%= listing.companions %></span></li>
+                  <li class="list-group-item"><span class="glyphicon glyphicon-user"></span><span class="badge"><%= listing.companions %> person/-s</span></li>
                   <% if listing.city %>
                   <li class="list-group-item"><span class="glyphicon glyphicon-globe"></span><span class="badge"><%= listing.city %></span></li>
                   <% else %>
                   <li class="list-group-item"><span class="glyphicon glyphicon-map-marker"></span><span class="badge">None</span></li>
                   <% end %>
-                  <li class="list-group-item"><span class="glyphicon glyphicon-calendar"></span><span class="badge"><%= listing.companions %></span></li>
-                  <li class="list-group-item">Interest </li>
-                  <li class="list-group-item">
+                  <li class="list-group-item"><span class="glyphicon glyphicon-calendar"></span><span class="badge"><% if listing.start_date != nil %>
+                  <%= listing.start_date.strftime("From %d-%b-%y") %>
+                  <% end%></span></li>
+                  <li class="list-group-item"><span class="glyphicon glyphicon-calendar"></span><span class="badge"><% if listing.end_date != nil %>
+                  <%= listing.end_date.strftime("To %d-%b-%y") %>
+                  <% end %></span></li>
+
                     <% if listing.listing_url != nil %>
-                      <li class="list-group-item"><span class="glyphicon glyphicon-home"></span><span class="badge"><span class="glyphicon glyphicon-ok-circle"></span></span></li>
+                      <li class="list-group-item"><span class="glyphicon glyphicon-home"></span><span class="badge badge-green"><span class="glyphicon glyphicon-ok-circle"></span></span></li>
                     <% else  %>
                       <li class="list-group-item"><span class="glyphicon glyphicon-home"></span><span class="badge badge-red"><span class="glyphicon glyphicon-remove-circle"></span></span></li>
                     <% end %> </li>
                 </ul>
+              </div>
               </div>
               <div class="col-md-9">
                 <%= truncate(listing.description, length: 100) %></br>
@@ -38,7 +45,6 @@
             <div class="col-md-12">
                     <div class="listing-meta-details">
                     <small> Created by:
-<%= gravatar_for(listing.user, :size => 40) %>
                        <%= listing.user.name if listing.user %>  |
                                         <%= time_ago_in_words(listing.created_at) %> ago  |
                                         last updated: <%= time_ago_in_words(listing.updated_at) %> </small>
