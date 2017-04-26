@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:edit, :update, :show]
+
   before_action :require_same_user, only: [:edit, :update, :destroy]
   before_action :require_admin, only: [:destroy]
 
@@ -11,25 +11,20 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def create
-    @user = User.new(user_params)
-    if @user.save
-      session[:user_id] = @user.id
-      flash[:success]= "Welcome to the Planetome, #{@user.first_name}!"
-      redirect_to user_path(@user)
-    else
-      render 'new'
-    end
-  end
 
   def edit
     @user = User.find(params[:id])
   end
 
   def update
+    @user = User.find(params[:id])
     if @user.update(user_params)
+      if params[:user][:avatar].present?
+        render :crop
+      else
       flash[:success] = "Youe account was updated successfully"
-      redirect_to listings_path
+      redirect_to user_path(current_user)
+      end
     else
       render 'edit'
     end
@@ -44,12 +39,12 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.destroy
     flash[:danger] = "User and all listings created by user have been deleted"
-    redirect_to users_path
+    redirect_to listings_path
   end
 
   private
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :username, :email, :password )
+    params.require(:user).permit(:first_name, :last_name, :avatar, :email, :age, :location_town, :about, :username, interest_ids: [])
   end
 
   def set_user

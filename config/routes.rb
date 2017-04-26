@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   get 'users/:id' => 'users#show', as: :user
   # get 'signup', to: 'users#new'
-  # resources :users, except: [:new]
+  resources :users, except: [:new]
   #
   # get 'login', to: 'sessions#new'
   # post 'login', to: 'sessions#create'

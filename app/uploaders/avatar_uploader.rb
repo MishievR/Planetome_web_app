@@ -45,7 +45,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   version :large do
-    process :resize_to_fill => [600, 600]
+    process :resize_to_limit => [600, 600]
     process :quality => 100
   end
 

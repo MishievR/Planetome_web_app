@@ -79,7 +79,9 @@
                 <li><%= link_to 'View your public profile', user_path(current_user)%></li>
                 <li><a href="#">View your profile data</a></li>
                 <li role="separator" class="divider"></li>
-                <li><%= link_to 'Edit your profile', edit_user_registration_path(current_user)%></li>
+                <li><%= link_to 'Edit your profile', edit_user_path(current_user)%></li>
+                <li role="separator" class="divider"></li>
+                <li><%= link_to 'Edit password & email', edit_user_registration_path(current_user)%></li>
               </ul>
             </li>
             <% else %>
