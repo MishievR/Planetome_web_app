@@ -25,6 +25,7 @@ gem 'devise-bootstrap-views'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
+gem 'figaro'
 
 
 # Use Uglifier as compressor for JavaScript assets

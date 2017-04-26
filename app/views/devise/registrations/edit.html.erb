@@ -17,8 +17,21 @@
       </div>
       <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1">
         <%= f.text_field :first_name, class: "form-control", placeholder: "Enter your first name", autofocus: true %>
+
       </div>
     </div>
+
+    <div class="form-group">
+      <div class="control-label col-sm-2 col-xs-12 col-sm-12 col-md-10 col-md-offset-1">
+        <%= f.label :upload_profilr_photo %>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1">
+        <%= f.file_field :avatar, accept: 'image/png,image/gif,image/jpeg, image/jpg',  class: "form-control" %>
+      </div>
+    </div>
+<%= image_tag @user.avatar.url(:thumb) if @user.avatar? %>
+
+
 
     <div class="form-group">
       <div class="control-label col-sm-2 col-xs-12 col-sm-12 col-md-10 col-md-offset-1">
