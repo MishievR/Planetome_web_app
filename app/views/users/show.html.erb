@@ -5,28 +5,38 @@
       <ul class="list-group">
         <li class="list-group-item">
           <%= image_tag @user.avatar.url(:medium), class: "profilePhoto" if @user.avatar? %>
-          <h1 align="center">Welcome to <%= @user.first_name %>'s page
-          </h1>
-        </li>
-        <li class="list-group-item">
-
-        </li>
+          <% if current_user != @user %>
+          <h2 align="center">Welcome to <%= @user.first_name %>'s page</h2>
+          <% else %>
+          <h2 align="center">Welcome to your profile page</h2>
+          <% end %>
+        </li><hr class="zero-margin">
         <li class="list-group-item">
           <span class="badge">14</span>
           Cras justo odio
-        </li>
-        <li class="list-group-item">
+        </li><hr class="zero-margin">
+        <li class="list-group-item ">
           Interests:
+          <div class="list-group-item-responsive ">
           <% if @user.interests.any? %>
           <%= render @user.interests %>
           <% end %>
+        </div>
         </li>
       </ul>
     </nav>
 
 
     <div class="col-md-9">
-      <h2 align=""><%= @user.name %>'s articles</h2>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <% if current_user != @user %>
+          <h2 align=""><%= @user.first_name %>'s listings</h2>
+          <% else %>
+          <h2 align="">Your listings</h2>
+          <% end %>
+        </div>
+      </div>
         <div align="">
           <% if user_signed_in? and current_user.admin? %>
           <%= link_to 'Edit this user',  edit_user_registration_path(@user), class: "btn btn-xs btn-primary" %>

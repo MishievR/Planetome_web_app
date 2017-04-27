@@ -56,11 +56,11 @@
                     <small>One or many</small></h4></div>
                       <%= f.collection_check_boxes :interest_ids, Interest.all, :id, :name do |cb| %>
                         <ul>
-                          <%= cb.label(class: "list-group-item checkbox-inline input_checkbox itme-list") {cb.check_box(class: "list-group-item checkbox ") + cb.text}  %>
+                          <%= cb.label(class: "list-group-item list-group-item-on-bg checkbox-inline input_checkbox itme-list") {cb.check_box(class: "list-group-item checkbox ") + cb.text}  %>
                         </ul>
                       <% end %>
 
-
+              
 </div>
 </div>
 

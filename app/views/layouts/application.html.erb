@@ -14,15 +14,15 @@
 
   <body id="show-listing-body">
     <%= render 'layouts/navigation' %>
-    <%= render 'layouts/messages' %>
 
-
-    <%= yield %>
-      <div class="container">
-      </div>
-    <%= render 'layouts/footer' %>
-    <!-- <%= debug(params) if Rails.env.development? %> -->
+    <div class="container">
+      <%= render 'layouts/messages' %>
+      <%= yield %>
+    </div>
+      <!-- <%= debug(params) if Rails.env.development? %> -->
 
   </body>
+
+    <%= render 'layouts/footer' %>
 
 </html>

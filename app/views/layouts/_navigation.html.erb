@@ -22,7 +22,6 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Actions <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><%= link_to 'New Listing', new_listing_path %></li>
-                <li><a href="#">Another action</a></li>
                 <li><a href="#">Something else here</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="#">Separated link</a></li>
@@ -53,9 +52,9 @@
         <button type="submit" class="btn btn-success">Go!</button>
       </form> -->
       <ul class="nav navbar-nav navbar-right">
-            <li id="nav-guest" ><a href="#">Find a Trip</a></li>
+            <!-- <li id="nav-guest" ><a href="#">Find a Trip</a></li> -->
             <% if user_signed_in? %>
-            <li id="nav-host"><span class="label label-info label-host"><%= link_to 'Host a Trip', new_listing_path %></span></li>
+            <li id="nav-host"><span class="label label-info label-host"><%= link_to 'Host a Place', new_listing_path %></span></li>
             <% end %>
 
 

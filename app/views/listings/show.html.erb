@@ -57,7 +57,7 @@
                 <p>Categories: <%= render @listing.interests %></p>
                 <% end %></li>
                 <li class="list-group-item">  <% if @listing.listing_url != nil %>
-                    <span class="label label-primary label-show-link"><%= link_to "Show living place", "https://www.airbnb.com/#{@listing.listing_url}", class: "badge-text",  :target => '_blank' %></span>
+                    <span class="label label-primary label-show-link"><%= link_to "Show living place", "https://api.airbnb.com/v2/listings/#{@listing.listing_url}", class: "badge-text",  :target => '_blank' %></span>
                   <% end %></span></li>
                 <li class="list-group-item"><% if @listing.categories.any? %>
                 <p>Categories: <%= render @listing.categories %></p>

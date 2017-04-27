@@ -13,22 +13,22 @@
 
 
 
-        
+
             <div class="row">
-              <div class="col-md-3">
+              <div class="col-md-4">
                 <ul class="list-group">
-                  <li class="list-group-item"><span class="glyphicon glyphicon-user"></span><span class="badge"><%= listing.companions %> person/-s</span></li>
+                  <li class="list-group-item"><span class="glyphicon glyphicon-user"></span><span class="badge"><%= listing.companions %> person/-s</span></li><hr class="zero-margin">
                   <% if listing.city %>
-                  <li class="list-group-item"><span class="glyphicon glyphicon-globe"></span><span class="badge"><%= listing.city %></span></li>
+                  <li class="list-group-item"><span class="glyphicon glyphicon-globe"></span><span class="badge"><%= listing.city %></span></li><hr class="zero-margin">
                   <% else %>
-                  <li class="list-group-item"><span class="glyphicon glyphicon-map-marker"></span><span class="badge">None</span></li>
+                  <li class="list-group-item"><span class="glyphicon glyphicon-map-marker"></span><span class="badge">None</span></li><hr class="zero-margin">
                   <% end %>
                   <li class="list-group-item"><span class="glyphicon glyphicon-calendar"></span><span class="badge"><% if listing.start_date != nil %>
                   <%= listing.start_date.strftime("From %d-%b-%y") %>
-                  <% end%></span></li>
+                  <% end%></span></li><hr class="zero-margin">
                   <li class="list-group-item"><span class="glyphicon glyphicon-calendar"></span><span class="badge"><% if listing.end_date != nil %>
                   <%= listing.end_date.strftime("To %d-%b-%y") %>
-                  <% end %></span></li>
+                  <% end %></span></li><hr class="zero-margin">
 
                     <% if listing.listing_url != nil %>
                       <li class="list-group-item"><span class="glyphicon glyphicon-home"></span><span class="badge badge-green"><span class="glyphicon glyphicon-ok-circle"></span></span></li>
@@ -37,7 +37,7 @@
                     <% end %> </li>
                 </ul>
               </div>
-              <div class="col-md-5">
+              <div class="col-md-4">
                 <div class="panel panel-default">
                   <div class="panel-body">
                     <%= truncate(listing.description, length: 200) %></br>
