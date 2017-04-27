@@ -4,6 +4,7 @@
     <nav class="col-md-3">
       <ul class="list-group">
         <li class="list-group-item">
+          <%= image_tag @user.avatar.url(:medium), class: "profilePhoto" if @user.avatar? %>
           <h1 align="center">Welcome to <%= @user.first_name %>'s page
           </h1>
         </li>

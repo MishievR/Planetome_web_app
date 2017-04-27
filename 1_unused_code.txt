@@ -14,4 +14,77 @@ end
 User_Controller
 
 before_action :set_user, only: [:edit, :update, :show]
- 
+
+
+
+
+//corp.html.erb
+<h1>Crop avatar</h1>
+
+<%= image_tag @user.avatar.url(:large), id: "cropbox" %>
+
+<%= form_for(@user) do |f| %>
+<% %w[x y w h].each do |attribute| %>
+
+<%= f.hidden_field_tag "crop_#{attribute}" %>
+<% end %>
+
+<div class="form-action">
+  <%= f.submit %>
+</div>
+<% end %>
+
+<div style="wigth:100px; height:100px; overflow:hidden">
+  <%= image_tag @user.avatar.url(:large), id: "preview" %>
+</div>
+
+
+///users.js.Coffee
+$ ->
+  new AvatarCropper()
+
+class AvatarCropper
+  constructor: ->
+
+    wigth = parseInt($('#cropbox').width())
+    height = parseInt($('#cropbox').height())
+
+    $('#cropbox').Jcrop
+    aspectRatio: 1
+    setSelect: [0, 0, wigth, height]
+    onSelect: @update
+    onChange: @update
+
+    update: (coords) =>
+      $('#user_corp_x').val(coords.x)
+      $('#user_corp_y').val(coords.y)
+      $('#user_corp_w').val(coords.w)
+      $('#user_corp_h').val(coords.h)
+      @updatePreview(coords)
+
+      updatePreview: (coords) =>
+        rx = 100 / coords.w
+        ry = 100 / coords.w
+
+        $('#preview').css
+        width: Math.round(rx * $('#cropbox').wigth()) + 'px'
+        height: Math.round(ry * $('#cropbox').height()) + 'px'
+        marginLeft: '-' + Math.round(rx * coords.x) + 'px'
+        marginTop: '-' + Math.round(ry * coords.y) + 'px'
+
+
+///user.rb
+attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
+after_update :crop_avatar
+
+def crop_avatar
+  avatar.recreate_versions! if crop_x.present?
+end
+
+///users_controller.rb
+##from update##
+if params[:user][:avatar].present?
+  render :crop
+else
+
+##from params## :crop_x, :crop_y, :crop_w, :crop_h,

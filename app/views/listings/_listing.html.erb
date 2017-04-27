@@ -1,18 +1,21 @@
 <% obj.each do |listing| %>
-      <div class="well">
-        <div class="listing-title">
-          <%= link_to listing.title, listing_path(listing), class: "listing-title-text" %>
-          <span class="badge badge-text badge-green"><strong>$<%= listing.price %></strong> <%= listing.price_time%></span>
-          <h4><%= listing.tag_line %></h4>
-          <p><%= render listing.interests %></p>
+      <div class="well well-sm">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="listing-title">
+              <%= link_to listing.title, listing_path(listing), class: "listing-title-text" %>
+              <span class="badge badge-text badge-green"><strong>$<%= listing.price %></strong> <%= listing.price_time%></span>
+              <h4><%= listing.tag_line %></h4>
+              <p><%= render listing.interests %></p>
+            </div>
+          </div>
         </div>
 
 
-        <div class="contaoner-fluid">
-          <div class="listing-body">
+
+        
             <div class="row">
               <div class="col-md-3">
-                <div class="panel panel-info">
                 <ul class="list-group">
                   <li class="list-group-item"><span class="glyphicon glyphicon-user"></span><span class="badge"><%= listing.companions %> person/-s</span></li>
                   <% if listing.city %>
@@ -34,20 +37,38 @@
                     <% end %> </li>
                 </ul>
               </div>
+              <div class="col-md-5">
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <%= truncate(listing.description, length: 200) %></br>
+                  </div>
+                </div>
               </div>
-              <div class="col-md-9">
-                <%= truncate(listing.description, length: 100) %></br>
+              <div class="col-md-4">
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <%= truncate(listing.description, length: 200) %></br>
+                  </div>
+                </div>
               </div>
+
+
+
+
           </div>
-      </div>
+
         <div class="container-fluid">
           <div class="row">
+            <div class="panel panel-default">
+              <div class="panel-body">
             <div class="col-md-12">
+              <h4><small>Host of the trip:</small></h4>
                     <div class="listing-meta-details">
-                    <small> Created by:
-                       <%= listing.user.name if listing.user %>  |
+
+                    <small>  <%= image_tag listing.user.avatar.url(:thumb), class: "profilePhotoThumb" if listing.user.avatar? %>
+                        <%= link_to listing.user.name, user_path(listing.user) %>  | Trip created
                                         <%= time_ago_in_words(listing.created_at) %> ago  |
-                                        last updated: <%= time_ago_in_words(listing.updated_at) %> </small>
+                                        last updated: <%= time_ago_in_words(listing.updated_at) %> </small><hr>
 
                     </div>
                     <% if listing.categories.any? %>
@@ -63,7 +84,14 @@
                     <% end %>
             </div>
           </div>
+
         </div>
       </div>
+        </div>
+
+
+
+
+
     </div>
 <% end %>

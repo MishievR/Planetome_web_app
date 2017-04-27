@@ -19,12 +19,8 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      if params[:user][:avatar].present?
-        render :crop
-      else
       flash[:success] = "Youe account was updated successfully"
       redirect_to user_path(current_user)
-      end
     else
       render 'edit'
     end
@@ -52,6 +48,7 @@ class UsersController < ApplicationController
   end
 
   def require_same_user
+    @user = User.find(params[:id])
     if current_user != @user and !current_user.admin?
       flash[:danger] = "You can only edit your own account"
       redirect_to root_path

@@ -51,16 +51,16 @@
 
 
               <div class="col-xs-12 col-sm-12 col-md-4">
-                <div class="list-group" autofocus: true>
-                  <div class="title-category"><h4>Please, select categories of the listing:</br>
+
+                  <div class="title-category"><h4>Select your interests:</br>
                     <small>One or many</small></h4></div>
                       <%= f.collection_check_boxes :interest_ids, Interest.all, :id, :name do |cb| %>
                         <ul>
                           <%= cb.label(class: "list-group-item checkbox-inline input_checkbox itme-list") {cb.check_box(class: "list-group-item checkbox ") + cb.text}  %>
                         </ul>
                       <% end %>
-                </div>
-              
+
+
 </div>
 </div>
 

@@ -4,19 +4,13 @@
 <%= form_for(@listing, :html => {class: "form-horizontal", role: "form"}) do |f| %>
 
     <div class="col-xs-12 col-sm-12 col-md-3">
-      <div class="container-fluid">
-        <div class="form-group">
-          <div class="list-group" autofocus: true>
-            <div class="title-category"><h4>What is the main interest of the trip?</br>
-              <small>From your inerests</small></h4></div>
-                <%= f.collection_check_boxes :interest_ids, current_user.interests.all, :id, :name do |cb| %>
-                  <ul>
-                <%= cb.label(class: "list-group-item checkbox-inline input_checkbox itme-list") {cb.check_box(class: "list-group-item checkbox ") + cb.text}  %>
-              </ul>
-            <% end %>
-          </div>
-        </div>
-      </div>
+      <div class="title-category"><h4>What is the main interest of the trip?</br>
+        <small>From your inerests <%= link_to 'Add more/change', edit_user_path(current_user) %> </small></h4></div>
+          <%= f.collection_check_boxes :interest_ids, current_user.interests.all, :id, :name do |cb| %>
+            <ul>
+          <%= cb.label(class: "list-group-item checkbox-inline input_checkbox itme-list") {cb.check_box(class: "list-group-item checkbox ") + cb.text}  %>
+        </ul>
+      <% end %>
     </div>
 
 
@@ -103,37 +97,31 @@
               <%= f.text_area :description, rows: 7, class: "form-control", placeholder: "Desctiption of article", autofocus: true %>
             </div>
           </div>
+
+
+  <div class="form-group">
+    <div class="col-sm-offset-1 col-sm-8 col-md-offset-1 col-md-9 col-lg-9">
+          <div class="btn-submit-listing">
+          <%= f.submit class: 'btn btn-primary btn-lg btn-long'%>
+        </div>
+          </div>
+        </div>
         </div>
       </div>
 
 
       <div class="col-xs-12 col-md-3">
-        <div class="container-fluid">
-          <div class="form-group">
-            <div class="list-group" autofocus: true>
-              <div class="title-category"><h4>Please, select categories of the listing:</br>
-                <small>One or many</small></h4></div>
-                  <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
-                    <ul>
-                  <%= cb.label(class: "list-group-item checkbox-inline input_checkbox itme-list") {cb.check_box(class: "list-group-item checkbox ") + cb.text}  %>
-                </ul>
-              <% end %>
-            </div>
-          </div>
-        </div>
+        <div class="title-category"><h4>Please, select categories of the listing:</br>
+          <small>One or many</small></h4></div>
+            <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
+              <ul>
+            <%= cb.label(class: "list-group-item checkbox-inline input_checkbox itme-list") {cb.check_box(class: "list-group-item checkbox ") + cb.text}  %>
+          </ul>
+        <% end %>
       </div>
 
     </div>
 
 
-    <div class="row">
-      <div class="form-group">
-        <div class="col-sm-offset-3 col-sm-10 col-md-4 col-lg-4">
-          <div class="btn-submit-listing">
-          <%= f.submit class: 'btn btn-primary btn-lg '%>
-        </div>
-        </div>
-      </div>
-    </div>
   </div>
 <% end %>

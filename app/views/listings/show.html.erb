@@ -16,10 +16,10 @@
             <div class="row">
               <div class="panel panel-default">
                 <div class="panel-body">
-              <div class="col-sm-2 col-md-1 col-lg-1">
-                <li><%= link_to gravatar_for(@listing.user), user_path(@listing.user) %></li>
+              <div class="col-sm-2 col-md-2 col-lg-2">
+                <li><%= image_tag @listing.user.avatar.url(:medium), class: "profilePhoto" if @listing.user.avatar? %></li>
               </div>
-              <div class="col-sm-10 col-md-11 col-lg-11">
+              <div class="col-sm-10 col-md-10 col-lg-10">
                 <li class="listing-title">
                   <%= link_to @listing.user.name, user_path(@listing.user), class: "listing-title-text" %>
                   <% if @listing.user.interests.any? %>
@@ -70,7 +70,7 @@
             <div class="row">
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"
                 <div class="btn-group" role="group" aria-label="...">
-                  <%= link_to 'Find a Place', new_user_registration_path, class: "btn btn-default btn-lg" %>
+                  <%= link_to 'Send Request', new_user_registration_path, class: "btn btn-default btn-lg btn-long" %>
                 </div>
               </div>
             </div>
@@ -82,7 +82,7 @@
           <div class="panel panel-default">
             <div class="panel-body">
               <div class="listing-actions">
-                <small> Listing created <%= time_ago_in_words(@listing.created_at) %> ago  |
+                <small> Trip created <%= time_ago_in_words(@listing.created_at) %> ago  |
                         last updated: <%= time_ago_in_words(@listing.updated_at) %>
                 </small>
               </div>

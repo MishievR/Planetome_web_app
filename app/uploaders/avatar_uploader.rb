@@ -31,7 +31,9 @@ class AvatarUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
+    # process :crop
     process resize_to_fill: [50, 50]
+    process :quality => 100
   end
 
   version :small do
@@ -45,10 +47,22 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   version :large do
-    process :resize_to_limit => [600, 600]
+    process :resize_to_fill => [600, 600]
     process :quality => 100
   end
 
+  # def crop
+  #   if model.crop_x.present?
+  #     resize_to_limit(600, 600)
+  #     manipulate! do |img|
+  #       x = model.crop_x.to_i
+  #       y = model.crop_y.to_i
+  #       w = model.crop_w.to_i
+  #       h = model.crop_h.to_i
+  #       img.crop([[w, h].join('x'),[x, y].join('+')].join('+'))
+  #     end
+  #   end
+  # end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
