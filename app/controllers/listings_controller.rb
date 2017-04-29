@@ -4,7 +4,7 @@ class ListingsController < ApplicationController
   before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def index
-    @listings = Listing.paginate(page: params[:page], per_page: 5)
+    @listings = Listing.reorder("created_at DESC").page(params[:page]).per_page(5)
   end
 
   def new
@@ -50,7 +50,7 @@ class ListingsController < ApplicationController
   private
     def listing_params
       params.require(:listing).permit(:title, :tag_line, :description, :listing_url, :companions, :price, :price_time,
-                                     :start_date, :end_date, category_ids: [], interest_ids: [])
+                                     :start_date, :end_date, :city, category_ids: [], interest_ids: [])
     end
 
     def set_listing

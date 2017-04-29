@@ -4,9 +4,14 @@
     <title>Planetome | Show Listings</title>
   </head>
   <body id="show-listing-body">
-  <h2 align="center"><%= @listing.title %> </h2>
-  <!-- <div class="well col-xs-8 col-xs-offset-2"> -->
   <div class="container-fluid">
+    <div class="col-md-10 col-md-offset-1 ">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h2 align="center"><strong><%= @listing.title %></strong></h2>
+      </div>
+    </div>
+    </div>
 <% if @listing.user %>
   <ul class="listing">
     <div class="container-fluid">
@@ -14,12 +19,13 @@
         <div class="col-md-10 col-md-offset-1 ">
           <div class="container-fluid">
             <div class="row">
+              <h3 class="center"><strong>Host:</strong></h3>
               <div class="panel panel-default">
                 <div class="panel-body">
-              <div class="col-sm-2 col-md-2 col-lg-2">
+              <div class="col-sm-3 col-md-3 col-lg-3">
                 <li><%= image_tag @listing.user.avatar.url(:medium), class: "profilePhoto" if @listing.user.avatar? %></li>
               </div>
-              <div class="col-sm-10 col-md-10 col-lg-10">
+              <div class="col-sm-9 col-md-9 col-lg-9">
                 <li class="listing-title">
                   <%= link_to @listing.user.name, user_path(@listing.user), class: "listing-title-text" %>
                   <% if @listing.user.interests.any? %>
@@ -38,7 +44,7 @@
     </div>
   </ul>
   <% end %>
-  <h4 class="center"><strong>Trip description:</strong></h4>
+  <h3 class="center"><strong>Trip description:</strong></h3>
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-10 col-md-offset-1 ">
@@ -56,9 +62,6 @@
                 <li class="list-group-item"><% if @listing.interests.any? %>
                 <p>Categories: <%= render @listing.interests %></p>
                 <% end %></li>
-                <li class="list-group-item">  <% if @listing.listing_url != nil %>
-                    <span class="label label-primary label-show-link"><%= link_to "Show living place", "https://api.airbnb.com/v2/listings/#{@listing.listing_url}", class: "badge-text",  :target => '_blank' %></span>
-                  <% end %></span></li>
                 <li class="list-group-item"><% if @listing.categories.any? %>
                 <p>Categories: <%= render @listing.categories %></p>
                 <% end %></li>
@@ -77,6 +80,27 @@
           </div>
         </div>
       </div>
+
+      <h3 class="center"><strong>About the place:</strong></h3>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="listing-actions">
+                <ul>
+                <li class="list-group-item">  <% if @listing.listing_url != nil %>
+                    <span class="label label-primary label-show-link"><%= link_to "Show living place", "https://airbnb.com/#{@listing.listing_url}", class: "badge-text",  :target => '_blank' %></span>
+                  <% end %></span></li>
+                  <li class="list-group-item">Report link</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
           <div class="panel panel-default">
@@ -90,6 +114,10 @@
           </div>
         </div>
       </div>
+
+
+
+
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"
           <div align="center">

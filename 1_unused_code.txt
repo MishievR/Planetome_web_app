@@ -88,3 +88,7 @@ if params[:user][:avatar].present?
 else
 
 ##from params## :crop_x, :crop_y, :crop_w, :crop_h,
+
+
+///category/index
+  <span class="badge"><%= category.listings.count %></span>

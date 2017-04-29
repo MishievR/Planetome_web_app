@@ -38,7 +38,7 @@
                           <h5>
                           <%= link_to "#{category.name}", category_path(category) %>
                           </h5>
-                          <span class="badge"><%= category.listings.count %></span>
+                        
                           <h4><small>
                             <%= truncate(category.description, length: 100) %>
                           </small></h4>

@@ -1,7 +1,6 @@
 $navbar-default-bg: #1d3461;
 
-
-
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto');
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @-webkit-keyframes focus-in-expand-fwd{0%{letter-spacing:-.5em;-webkit-transform:translateZ(-800px);transform:translateZ(-800px);-webkit-filter:blur(12px);filter:blur(12px);opacity:0}100%{-webkit-transform:translateZ(0);transform:translateZ(0);-webkit-filter:blur(0);filter:blur(0);opacity:1}}@keyframes focus-in-expand-fwd{0%{letter-spacing:-.5em;-webkit-transform:translateZ(-800px);transform:translateZ(-800px);-webkit-filter:blur(12px);filter:blur(12px);opacity:0}100%{-webkit-transform:translateZ(0);transform:translateZ(0);-webkit-filter:blur(0);filter:blur(0);opacity:1}}
@@ -10,7 +9,6 @@ body {
     color: #443A3A;
     height: 100%;
     bottom: 0px;
-    margin-bottom: 2px;
 }
 hr {
   margin-top: 7px;
@@ -281,7 +279,8 @@ hr.zero-margin {
   text-align: center;
   padding-top: 20vh;
   padding-bottom: 1.5vh;
-  font-family: 'Open Sans' sans-serif;
+  font-family: 'Roboto', sans-serif;
+
 }
 .jumbotron h3 {
   color: #fff;
@@ -290,7 +289,8 @@ hr.zero-margin {
   padding-top: 3vh;
   padding-bottom: 3vh;
   align-self: left;
-  font-family: 'Open Sans' sans-serif;
+  font-family: 'Roboto', sans-serif;
+
 }
 
 .desc-tag {
