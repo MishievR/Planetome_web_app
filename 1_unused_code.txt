@@ -92,3 +92,9 @@ else
 
 ///category/index
   <span class="badge"><%= category.listings.count %></span>
+
+
+
+
+
+_navigation
